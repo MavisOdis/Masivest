@@ -12,6 +12,8 @@ export default function App() {
     'Cinderela': require('./assets/fonts/Cinderela.ttf'),
     'Inter-black': require('./assets/fonts/Inter-Black.ttf'),
     'Inter-bold': require('./assets/fonts/Inter-Bold.ttf'),
+    'Inter-regular': require('./assets/fonts/Inter-Regular.ttf'),
+    'Inter-thin': require('./assets/fonts/Inter-Thin.ttf'),
   });
 
   const onLayoutRootView = useCallback(async () => {
