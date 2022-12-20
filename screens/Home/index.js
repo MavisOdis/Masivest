@@ -21,6 +21,7 @@ import {
 import Constants from "expo-constants";
 import { Octicons, Ionicons, AntDesign } from "@expo/vector-icons";
 import { Card } from "react-native-paper";
+import CardView from "../../componets/Home/homeCard";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -109,52 +110,8 @@ const HomeScreen = () => {
       </Stack>
       <Divider color={"gray.100"} />
       {/* card view for each item */}
-      {[
-        {
-          image: (
-            <Image
-              source={require("../../assets/card1.png")}
-              style={{ width: "100%", height: "95%" }}
-            />
-          ),
-        },
-        {
-          image: (
-            <Image
-              source={require("../../assets/card2.png")}
-              style={{ width: "100%", height: "95%" }}
-            />
-          ),
-        },
-        {
-          image: (
-            <Image
-              source={require("../../assets/card3.png")}
-              style={{ width: "100%", height: "95%" }}
-            />
-          ),
-        },
-        {
-          image: (
-            <Image
-              source={require("../../assets/card5.png")}
-              style={{ width: "100%", height: "95%" }}
-            />
-          ),
-        },
-      ].map((item, index) => (
-        <Card
-          key={index}
-          style={{
-            width: "95%",
-            height: height / 3,
-            marginTop: 15,
-            marginHorizontal: 10,
-          }}
-        >
-          {item.image}
-        </Card>
-      ))}
+      <CardView/>
+      
     </ScrollView>
   );
 };
