@@ -5,23 +5,21 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  TextInput,
   Image,
+  TouchableOpacity,
 } from "react-native";
 import {
   Button,
-  Center,
   Divider,
   Icon,
   Input,
-  NativeBaseProvider,
   Stack,
   View,
 } from "native-base";
 import Constants from "expo-constants";
 import { Octicons, Ionicons, AntDesign } from "@expo/vector-icons";
-import { Card } from "react-native-paper";
 import CardView from "../../componets/Home/homeCard";
+import NewsLetter from "../../componets/Home/newsLetter";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -39,7 +37,7 @@ const HomeScreen = () => {
         }}
       >
         <Text style={styles.headerText}>Cakes</Text>
-        <View style={{ flexDirection: "row" }}>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Button variant={"outline"} m={2}>
             <View style={{ flexDirection: "row" }}>
               <Text style={{ fontFamily: "Inter-regular", paddingRight: 5 }}>
@@ -52,9 +50,9 @@ const HomeScreen = () => {
               />
             </View>
           </Button>
-          <Button variant={"outline"} m={2}>
-            <Icon as={<Ionicons name="menu" />} size="sm" />
-          </Button>
+          <TouchableOpacity>
+            <Icon as={<Ionicons name="menu" />} size="3xl" />
+          </TouchableOpacity>
         </View>
       </View>
 
@@ -90,7 +88,7 @@ const HomeScreen = () => {
             _dark={{ placeholderTextColor: "blueGray.50" }}
           />
         </View>
-        <Icon name="search" size={20} />
+        {/* <Icon name="search" size={20} /> */}
       </ImageBackground>
       {/* unstyled buttons for the dropdown menu */}
       <Stack
@@ -108,10 +106,17 @@ const HomeScreen = () => {
         <Button variant={"outline"}>Lactose Free</Button>
         <Button variant={"outline"}>Sugar Free</Button>
       </Stack>
+
       <Divider color={"gray.100"} />
+
       {/* card view for each item */}
-      <CardView/>
-      
+      <CardView />
+
+      {/*News letter card  */}
+      <Divider color={"gray.100"} style={{marginVertical:20}} />
+
+      <NewsLetter/>
+
     </ScrollView>
   );
 };
