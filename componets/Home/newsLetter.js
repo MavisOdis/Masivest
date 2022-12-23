@@ -2,12 +2,20 @@ import { Icon, Input } from "native-base";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Card } from "react-native-paper";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
+import Footer from "../Footer/footer";
+import { LinearGradient } from 'expo-linear-gradient';
+
 
 const NewsLetter = () => {
   return (
     <>
-      <Card style={{alignItems:'center',margin:15,padding:24, backgroundColor:"#fff"}}>
+      <View style={{flexDirection:"row",justifyContent:'space-around'}}>
+        <AntDesign name="arrowleft" size={15} color="#4F4F4F" />
+        <Text style={styles.pageIndicator}>Page 1 of 10</Text>
+        <AntDesign name="arrowright" size={15} color="#4F4F4F" />
+      </View>
+      <Card style={styles.newsLetterCard}>
         <Text style={styles.newsletter}>Newsletter</Text>
         <Text style={styles.description}>
           Get updates on your favourite recipes, books and latest features
@@ -21,7 +29,7 @@ const NewsLetter = () => {
                 as={<MaterialCommunityIcons name="email-outline" />}
                 size="md"
                 m={2}
-                _light={{ color: "black" }}
+                _light={{ color: "#BDBDBD" }}
                 _dark={{ color: "gray.300" }}
               />
             }
@@ -31,10 +39,17 @@ const NewsLetter = () => {
           />
         </View>
 
-        <TouchableOpacity style={styles.subscribe}>
+        <LinearGradient colors={['#6E3886','#EDBD03']} 
+          start={{x: 0.21, y: 0}}
+          end={{x: 1, y: 1}} style={styles.subscribe}>
+          <TouchableOpacity >
             <Text style={styles.subText}>Subscribe</Text>
-        </TouchableOpacity>
+          </TouchableOpacity>
+        </LinearGradient>
+        
       </Card>
+      {/* footer */}
+      <Footer/>
     </>
   );
 };
@@ -76,5 +91,18 @@ const styles = StyleSheet.create({
         fontSize:16,
         lineHeight:19.36,
         fontFamily: "Inter-regular"
+    },
+    newsLetterCard: {
+      alignItems:'center',
+      margin:15,
+      padding:24, 
+      backgroundColor:"#fff",
+      zIndex:3
+    },
+    pageIndicator: {
+      color:'#828282',
+      fontFamily: "Inter-regular",
+      fontSize:14,
+      lineHeight:20
     },
 })
